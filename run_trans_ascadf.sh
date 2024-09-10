@@ -4,7 +4,7 @@
 USE_TPU=False
 
 # Experiment (data/checkpoint/directory) config
-DATA_PATH=#Path to the .h5 file containing the dataset
+DATA_PATH= #Path to the .h5 file containing the dataset
 DATASET=ASCAD
 CKP_DIR=./
 CKP_IDX=0
@@ -39,9 +39,9 @@ CONV_KERNEL_SIZE=3 # The kernel size of the first convolutional layer is set to 
 		   # This hyper-parameter set the kernel size of the remaining 
 		   # convolutional layers
 N_CONV_LAYER=2
-POOL_SIZE=8       
+POOL_SIZE=20 #8       
 D_KERNEL_MAP=512
-BETA_2=150        
+BETA_HAT_2=150        
 MODEL_NORM='preLC'
 HEAD_INIT='forward'
 SM_ATTN=True
@@ -84,7 +84,7 @@ if [[ $1 == 'train' ]]; then
 	--n_conv_layer=${N_CONV_LAYER} \
         --pool_size=${POOL_SIZE} \
 	--d_kernel_map=${D_KERNEL_MAP} \
-	--beta_2=${BETA_2} \
+	--beta_hat_2=${BETA_HAT_2} \
 	--model_normalization=${MODEL_NORM} \
 	--head_initialization=${HEAD_INIT} \
 	--softmax_attn=${SM_ATTN} \
@@ -123,7 +123,7 @@ elif [[ $1 == 'test' ]]; then
 	--n_conv_layer=${N_CONV_LAYER} \
         --pool_size=${POOL_SIZE} \
 	--d_kernel_map=${D_KERNEL_MAP} \
-	--beta_2=${BETA_2} \
+	--beta_hat_2=${BETA_HAT_2} \
 	--model_normalization=${MODEL_NORM} \
 	--head_initialization=${HEAD_INIT} \
 	--softmax_attn=${SM_ATTN} \

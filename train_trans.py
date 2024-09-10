@@ -85,7 +85,7 @@ flags.DEFINE_integer("d_head_softmax", default=32,
       help="Dimension of each head in softmax attention")
 flags.DEFINE_integer("d_kernel_map", default=128,
       help="Dimension of the kernel feature map (d_e).")
-flags.DEFINE_integer("beta_2", default=100,
+flags.DEFINE_integer("beta_hat_2", default=100,
       help="Distance based scaling in the kernel of self-attention")
 flags.DEFINE_float("dropout", default=0.1,
       help="Dropout rate.")
@@ -153,7 +153,7 @@ def create_model(n_classes):
         n_conv_layer = FLAGS.n_conv_layer,
         pool_size = FLAGS.pool_size,
         d_kernel_map = FLAGS.d_kernel_map,
-        beta_2 = FLAGS.beta_2,
+        beta_hat_2 = FLAGS.beta_hat_2,
         model_normalization = FLAGS.model_normalization,
         head_initialization = FLAGS.head_initialization,
         softmax_attn = FLAGS.softmax_attn,
@@ -412,7 +412,7 @@ def print_hyperparams():
     tf.compat.v1.logging.info("n_conv_layer          : %s" % (FLAGS.n_conv_layer))
     tf.compat.v1.logging.info("pool_size             : %s" % (FLAGS.pool_size))
     tf.compat.v1.logging.info("d_kernel_map          : %s" % (FLAGS.d_kernel_map))
-    tf.compat.v1.logging.info("beta_2                : %s" % (FLAGS.beta_2))
+    tf.compat.v1.logging.info("beta_hat_2            : %s" % (FLAGS.beta_hat_2))
     tf.compat.v1.logging.info("model_normalization   : %s" % (FLAGS.model_normalization))
     tf.compat.v1.logging.info("head_initialization   : %s" % (FLAGS.head_initialization))
     tf.compat.v1.logging.info("softmax_attn          : %s" % (FLAGS.softmax_attn))
