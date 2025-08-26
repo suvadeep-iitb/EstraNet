@@ -52,11 +52,11 @@ For more details, refer to the [paper](https://tches.iacr.org/index.php/TCHES/ar
    ```
 4. Train EstraNet:
    ```bash
-   bash exp_script_\<dataset\>.sh train
+   bash run_script_\<dataset\>.sh train
    ```
 5. Perform Evaluation:
    ```bash
-   bash exp_script_\<dataset\>.sh test
+   bash run_script_\<dataset\>.sh test
    ```
 
 ----
