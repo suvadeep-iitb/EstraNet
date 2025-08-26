@@ -50,11 +50,11 @@ For more details, refer to the [paper](https://tches.iacr.org/index.php/TCHES/ar
    ```
    Open run_trans_\<dataset\>.sh and set the dataset path variable properly.
    ```
-4. Train EstraNet:
+4. **Train EstraNet:**
    ```bash
    bash run_trans_\<dataset\>.sh train
    ```
-5. Perform Evaluation:
+5. **Perform Evaluation:**
    ```bash
    bash run_trans_\<dataset\>.sh test
    ```
