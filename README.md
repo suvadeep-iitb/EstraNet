@@ -1,22 +1,65 @@
 # EstraNet: An Efficient Shift-Invariant Transformer Network for Side Channel Analysis
 
-This repository contains the implementation of EstraNet, an efficient shift invariant transformer network for Side Channel Analysis ([paper](https://tches.iacr.org/index.php/TCHES/article/view/11255)).
+This repository contains the implementation of **EstraNet**, an efficient shift-invariant transformer network for Side-Channel Analysis.  
+For more details, refer to the [paper](https://tches.iacr.org/index.php/TCHES/article/view/11255).
 
-The implementation is composed of the following files:
-* **fast_attention.py:** It contains the code of the proposed GaussiP attention layer.
-* **normalization.py:** It contains the code of layer-centering layer.
-* **transformer.py:** It contains the code of the EstraNet model.
-* **train_trans.py** It contains the code for training and evaluating the EstraNet model.
-* **data_utils.py:** It contains the code for reading data from the ASCADf or ASCADr dataset.
-* **data_utils_ches20.py:** It contains the code for reading data from the CHES20 dataset.
-* **evaluation_utils.py:** It contains the code for computing the guessing entropy for the ASCAD datasets.
-* **evaluation_utils_ches20.py:** It contains the code for computing the guessing entropy for the CHES20 dataset.
-* **run_trans_\<dataset\>.sh:** It is the bash script with proper hyper-parameter setting to perform experiments 
-on dataset \<dataset\> where \<dataset\> is one of ASCADf ([ASCAD fixed key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_fixed_key)), ASCADr ([ASCAD random key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_variable_key)) and CHES20 ([CHES CTF 2020](https://ctf.spook.dev/)).
+---
+## Repository Structure
+- **`fast_attention.py`** – Implements the proposed GaussiP attention layer.
+- **`normalization.py`** – Implements the layer-centering normalization.
+- **`transformer.py`** – Defines the EstraNet model architecture.
+- **`train_trans.py`** – Training and evaluation script for EstraNet.
+- **`data_utils.py`** – Utilities for loading ASCADf and ASCADr datasets.
+- **`data_utils_ches20.py`** – Utilities for loading the CHES20 dataset.
+- **`evaluation_utils.py`** – Computes guessing entropy for ASCAD datasets.
+- **`evaluation_utils_ches20.py`** – Computes guessing entropy for CHES20 dataset.
+- **`run_trans_\<dataset\>.sh`** – Bash scripts with predefined hyperparameters for specific datasets, where `<dataset>` is one of:
+  - **ASCADf** ([fixed key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_fixed_key))
+  - **ASCADr** ([random key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_variable_key))
+  - **CHES20** ([CHES CTF 2020](https://ctf.spook.dev/))
 
+---
 
 ## Data Pre-processing:
-* The traces of the CHES CTF 2020 dataset have been multiplied by the constant 0.004 to keep the range of the feature values within [-120, 120].
+- For the **CHES CTF 2020** dataset, the traces are multiplied by a constant `0.004` to keep the feature value range within **[-120, 120]**.
+
+---
+
+## Tested on
+- Python 3.8.10  
+- absl-py == 2.3.1 
+- numpy == 1.24.3
+- scipy == 1.10.1
+- h5py == 3.11.0
+- tensorflow == 2.13.0
+
+---
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/suvadeep-iitb/EstraNet.git
+   cd EstraNet
+   ```
+2. **Install dependencies (Python >= 3.8 recommended):**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Set dataset path in the bash script:**
+   ```
+   Open run_trans_\<dataset\>.sh and set the dataset path variable properly.
+   ```
+4. Train EstraNet:
+   ```bash
+   bash exp_script_\<dataset\>.sh train
+   ```
+5. Perform Evaluation:
+   ```bash
+   bash exp_script_\<dataset\>.sh test
+   ```
+
+----
 
 ## Citation:
 ```
